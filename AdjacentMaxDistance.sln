@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29920.165
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdjacentMaxDistance", "AdjacentMaxDistance\AdjacentMaxDistance.csproj", "{3838167B-E9C6-4350-90F7-A75FC8FD84DB}"
+EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "AdjacentMaxDistance.Tests", "AdjacentMaxDistance.Tests\AdjacentMaxDistance.Tests.csproj", "{50CCBC96-0C0F-4FCC-957D-7BE1A9BDA0F0}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{3838167B-E9C6-4350-90F7-A75FC8FD84DB}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{3838167B-E9C6-4350-90F7-A75FC8FD84DB}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{3838167B-E9C6-4350-90F7-A75FC8FD84DB}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{3838167B-E9C6-4350-90F7-A75FC8FD84DB}.Release|Any CPU.Build.0 = Release|Any CPU
+		{50CCBC96-0C0F-4FCC-957D-7BE1A9BDA0F0}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{50CCBC96-0C0F-4FCC-957D-7BE1A9BDA0F0}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{50CCBC96-0C0F-4FCC-957D-7BE1A9BDA0F0}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{50CCBC96-0C0F-4FCC-957D-7BE1A9BDA0F0}.Release|Any CPU.Build.0 = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {13F5CCF8-113F-4192-8E4D-C42D790D1030}
+	EndGlobalSection
+EndGlobal
