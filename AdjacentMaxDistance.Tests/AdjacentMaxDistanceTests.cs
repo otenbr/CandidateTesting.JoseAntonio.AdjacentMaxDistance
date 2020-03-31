@@ -6,40 +6,58 @@ namespace CandidateTesting.JoseAntonio.AdjacentMaxDistance.Tests
     public class AdjacentMaxDistanceTests
     {
         [TestMethod]
-        public void ShouldReturnTheMaxDistanceBetweenAdjacentIndexes()
+        public void MustReturnTheMaxDistance()
         {
-            int[] numbers = new int[] { 0, 3, 3, 12, 5, 3, 7, 1 };
-            int result = AdjacentMaxDistance.Solution(numbers);
+            int[] A = new int[] { 0, -3, 3, -12, 5, -3, 7, -1 };
+            int result = AdjacentMaxDistance.Solution(A);
+
+            // Max Distance: A[1] - A[3] = -3 - (-12) = 9
+            int expectedValue = 9;
+
+            Assert.AreEqual(expectedValue, result);
+        }
+
+        [TestMethod]
+        public void MustReturnTheMaxDistanceForPositiveValues()
+        {
+            int[] A = new int[] { 0, 3, 3, 12, 5, 3, 7, 1 };
+            int result = AdjacentMaxDistance.Solution(A);
+
+            // Max Distance: A[3] - A[6] = 12 - 5 = 5
             int expectedValue = 5;
 
             Assert.AreEqual(expectedValue, result);
+        }
 
+        [TestMethod]
+        public void MustReturnTheMaxDistanceForNegativeValues()
+        {
+            int[] A = new int[] { 0, -3, -3, -2, -5, -3, -7, -1 };
+            int result = AdjacentMaxDistance.Solution(A);
 
-            numbers = new int[] { 0, 3, 3, 7, 5, 3, 11, 1 };
-            result = AdjacentMaxDistance.Solution(numbers);
-            expectedValue = 4;
+            // Max Distance: A[1] - A[4] = -3 - (-5) = 2
+            int expectedValue = 2;
 
             Assert.AreEqual(expectedValue, result);
         }
 
         [TestMethod]
-        public void ShouldReturnTheMaxDistanceForNegativeValues()
+        public void IfThereIsNoAdjacentIndexes()
         {
-            int[] numbers = new int[] { 0, 3, 3, -2, 5, 3, 7, 1 };
+            int[] A = new int[] { 1 };
 
-            int result = AdjacentMaxDistance.Solution(numbers);
+            int result = AdjacentMaxDistance.Solution(A);
+            int expectedValue = -2;
 
-            Assert.AreEqual(2, result);
+            Assert.AreEqual(expectedValue, result);
         }
 
         [TestMethod]
-        public void IfThereAreNoAdjacentIndexes()
+        public void MustThrowExceptionIfArrayBiggerThen40000Items()
         {
-            int[] numbers = new int[] { 0, 1, 2 };
+            int[] A = new int[40001];
 
-            int result = AdjacentMaxDistance.Solution(numbers);
-
-            Assert.AreEqual(1, result);
+            Assert.ThrowsException<System.ArgumentException>(() => AdjacentMaxDistance.Solution(A));
         }
     }
 }

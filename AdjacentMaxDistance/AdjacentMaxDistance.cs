@@ -1,6 +1,4 @@
 ﻿using System;
-using System.Collections.Generic;
-using System.Diagnostics;
 
 namespace CandidateTesting.JoseAntonio.AdjacentMaxDistance
 {
@@ -13,12 +11,14 @@ namespace CandidateTesting.JoseAntonio.AdjacentMaxDistance
 		/// <returns>Max distance. If there is not adjacents index the returned value is -2.</returns>
 		public static int Solution(int[] A)
 		{
-			List<int[]> indexes = new List<int[]>();
-			List<int> distanceIndexes = new List<int>();
+			// Throw exception if the length of array be greater than 40000 items.
+			if (A.Length > 40000)
+				throw new ArgumentException("The array A can contain up to 40000 items.", nameof(A));
 
+			// Variable that store the max distance.
 			int maxAdjacentDistance = -2;
 
-			// Walk to the array of numbers with indexes P=i and Q=i+1. Following the rule 0 ≤ P < Q < N.
+			// Iterate to the array of numbers with indexes P=i and Q=i+1. Following the rule 0 ≤ P < Q < N.
 			for (int i = 0; i < A.Length; i++)
 			{
 				for (int j = i + 1; j < A.Length; j++)
@@ -27,11 +27,7 @@ namespace CandidateTesting.JoseAntonio.AdjacentMaxDistance
 					{
 						int distance = Math.Abs(A[i] - A[j]);
 
-						Debug.WriteLine($"( {i}, {j} ) => ( {A[i]}, {A[j]} ) = {distance}");
-
-						indexes.Add(new int[] { i, j, A[i], A[j], distance });
-						distanceIndexes.Add(distance);
-
+						// Update maxAdjacentDistance, if distance is greater than previous value of maxAdjacentDistance
 						maxAdjacentDistance = distance > maxAdjacentDistance ? distance : maxAdjacentDistance;
 					}
 				}
@@ -53,17 +49,7 @@ namespace CandidateTesting.JoseAntonio.AdjacentMaxDistance
 			int firstValue = numbers[firstIndex];
 			int lastValue = numbers[lastIndex];
 
-			if (firstValue < lastValue)
-			{
-				return Array.FindAll(numbers, x => (firstValue < x && x < lastValue)).Length == 0;
-			}
-
-			if (firstValue > lastValue)
-			{
-				return Array.FindAll(numbers, x => (firstValue > x && x > lastValue)).Length == 0;
-			}
-
-			return false;
+			return !Array.Exists(numbers, x => (firstValue < x && x < lastValue) || (firstValue > x && x > lastValue));
 		}
 	}
 }
